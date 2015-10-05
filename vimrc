@@ -57,3 +57,9 @@ let g:syntastic_javascript_checkers = ['eslint']
 map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
 map <Leader>s <plug>NERDTreeTabsToggle<CR>
+map <Leader>p :CtrlP<CR>
+
+if has("gui_macvim")
+  macmenu File.Print key=<nop> " Who uses print anyways?
+  set guifont=Menlo:h14
+endif
