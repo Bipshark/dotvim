@@ -1,21 +1,15 @@
 set nocompatible              " be iMproved, required
-filetype plugin on
-
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set cursorline
 set number
 set laststatus=2
+set colorcolumn=80
 let mapleader = ","
 
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx' " JSX support
 Plugin 'pangloss/vim-javascript'
@@ -26,18 +20,19 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+"Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'Nopik/vim-nerdtree-direnter'
+Plugin 'moll/vim-bbye'
+Plugin 'tpope/vim-surround'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'airblade/vim-gitgutter'
+call vundle#end()
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+filetype plugin indent on
 set background=dark
 colorscheme PaperColor
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
@@ -53,11 +48,16 @@ if executable('ag')
 endif
 
 let g:syntastic_javascript_checkers = ['eslint']
+let g:airline#extensions#tabline#enabled = 1
 
 map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
-map <Leader>s <plug>NERDTreeTabsToggle<CR>
+"map <Leader>s <plug>NERDTreeTabsToggle<CR>
 map <Leader>p :CtrlP<CR>
+nmap <leader>q :bp <BAR> bd #<CR>
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 
 if has("gui_macvim")
   set guifont=Menlo:h14
