@@ -68,5 +68,5 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
 if has("gui_macvim")
-  set guifont=Menlo:h14
+  set guifont=Menlo:h12
 endif
