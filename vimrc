@@ -17,7 +17,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx' " JSX support
 Plugin 'pangloss/vim-javascript'
-Plugin 'NLKNguyen/papercolor-theme'
+"Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kchmck/vim-coffee-script'
@@ -28,17 +28,19 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'moll/vim-bbye'
 Plugin 'tpope/vim-surround'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Shougo/neocomplcache.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'flazz/vim-colorschemes'
 call vundle#end()
 
 filetype plugin indent on
 set background=dark
-colorscheme PaperColor
+colorscheme hybrid
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ctrlp_working_path_mode = 0
 let g:airline_section_b = '%{getcwd()}'
+let g:neocomplcache_enable_at_startup = 1
 
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
