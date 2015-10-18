@@ -6,6 +6,10 @@ set cursorline
 set number
 set laststatus=2
 set colorcolumn=80
+set hidden
+set showmatch
+set nobackup
+set noswapfile
 let mapleader = ","
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -33,6 +37,8 @@ set background=dark
 colorscheme PaperColor
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+let g:ctrlp_working_path_mode = 0
+let g:airline_section_b = '%{getcwd()}'
 
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
