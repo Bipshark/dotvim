@@ -16,6 +16,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx' " JSX support
+Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -37,7 +38,7 @@ call vundle#end()
 
 filetype plugin indent on
 set background=dark
-colorscheme hybrid
+colorscheme PaperColor
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ctrlp_working_path_mode = 0
@@ -60,6 +61,7 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:airline#extensions#tabline#enabled = 1
+" let g:airline_theme='PaperColor'
 
 map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
