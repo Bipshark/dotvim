@@ -32,6 +32,7 @@ Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'sickill/vim-pasta'
 call vundle#end()
 
 filetype plugin indent on
@@ -64,6 +65,8 @@ map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
 "map <Leader>s <plug>NERDTreeTabsToggle<CR>
 map <Leader>p :CtrlP<CR>
+" go to eol
+map € $
 nmap <leader>q :bp <BAR> bd #<CR>
 
 nnoremap <C-Tab> :bnext<CR>
