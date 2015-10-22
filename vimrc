@@ -23,14 +23,15 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'tomtom/tcomment_vim'
 "Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'moll/vim-bbye'
 Plugin 'tpope/vim-surround'
-Plugin 'Shougo/neocomplcache.vim'
+Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'ntpeters/vim-better-whitespace'
 call vundle#end()
 
 filetype plugin indent on
@@ -41,6 +42,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ctrlp_working_path_mode = 0
 let g:airline_section_b = '%{getcwd()}'
 let g:neocomplcache_enable_at_startup = 1
+" let g:indent_guides_enable_on_vim_startup = 1
 
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
@@ -64,8 +66,8 @@ map <Enter> O<ESC>j
 map <Leader>p :CtrlP<CR>
 nmap <leader>q :bp <BAR> bd #<CR>
 
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+nnoremap <C-Tab> :bnext<CR>
+nnoremap <C-S-Tab> :bprevious<CR>
 
 if has("gui_macvim")
   set guifont=Menlo:h12
