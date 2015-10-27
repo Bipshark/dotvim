@@ -10,13 +10,19 @@ set hidden
 set showmatch
 set nobackup
 set noswapfile
+set splitright
+set splitbelow
+set background=dark
+set nowrap
 let mapleader = ","
+
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx' " JSX support
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
 "Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -37,14 +43,20 @@ Plugin 'sickill/vim-pasta'
 call vundle#end()
 
 filetype plugin indent on
-set background=dark
-colorscheme PaperColor
+colorscheme gruvbox
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ctrlp_working_path_mode = 0
 let g:airline_section_b = '%{getcwd()}'
-let g:neocomplcache_enable_at_startup = 1
 " let g:indent_guides_enable_on_vim_startup = 1
+
+set conceallevel=1
+set concealcursor=nvic
+let g:javascript_conceal_function = "λ"
+let g:javascript_conceal_this = "@"
+let g:javascript_conceal_return = "↩"
+let g:javascript_conceal_null = "ø"
+highlight Conceal cterm=bold ctermbg=NONE ctermfg=darkblue
 
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
@@ -61,19 +73,28 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:airline#extensions#tabline#enabled = 1
-" let g:airline_theme='PaperColor'
 
 map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
 "map <Leader>s <plug>NERDTreeTabsToggle<CR>
 map <Leader>p :CtrlP<CR>
+map <Leader>b :CtrlPBuffer<CR>
 " go to eol
 map € $
-nmap <leader>q :bp <BAR> bd #<CR>
+nmap <Leader>q :bp <BAR> bd #<CR>
 
-nnoremap <C-Tab> :bnext<CR>
-nnoremap <C-S-Tab> :bprevious<CR>
+noremap <C-Tab> :bnext<CR>
+noremap <S-C-Tab> :bprevious<CR>
+inoremap <C-Tab> <Esc>:bnext<CR>
+inoremap <S-C-Tab> <Esc>:bprevious<CR>
+
+nnoremap <Leader><Left> <C-W><C-H>
+nnoremap <Leader><Right> <C-W><C-L>
+nnoremap <Leader><Up> <C-W><C-K>
+nnoremap <Leader><Down> <C-W><C-J>
 
 if has("gui_macvim")
-  set guifont=Menlo:h14
+  set guifont=Menlo:h12
 endif
+
+
