@@ -14,8 +14,7 @@ set splitright
 set splitbelow
 set background=dark
 set nowrap
-let mapleader = ","
-
+let mapleader = "§"
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
