@@ -14,31 +14,33 @@ set splitright
 set splitbelow
 set background=dark
 set nowrap
-let mapleader = "§"
+let mapleader = " "
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'mxw/vim-jsx' " JSX support
-Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'morhetz/gruvbox'
 Plugin 'pangloss/vim-javascript'
-"Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'tomtom/tcomment_vim'
-"Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'scrooloose/nerdtree'
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'moll/vim-bbye'
 Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'flazz/vim-colorschemes'
+" Plugin 'flazz/vim-colorschemes'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'sickill/vim-pasta'
+Plugin 'tpope/vim-fugitive'
+Plugin 'Wolfy87/vim-syntax-expand'
 call vundle#end()
 
 filetype plugin indent on
@@ -49,11 +51,16 @@ let g:ctrlp_working_path_mode = 0
 let g:airline_section_b = '%{getcwd()}'
 " let g:indent_guides_enable_on_vim_startup = 1
 
+" Map the conceal characters to their expanded forms.
+inoremap <silent> @! <C-r>=syntax_expand#expand("@!", "this")<CR>
+inoremap <silent> <! <C-r>=syntax_expand#expand("<!", "return")<CR>
+inoremap <silent> fn! <C-r>=syntax_expand#expand("fn!", "function")<CR>
+
 set conceallevel=1
 set concealcursor=nvic
 let g:javascript_conceal_function = "λ"
 let g:javascript_conceal_this = "@"
-let g:javascript_conceal_return = "↩"
+let g:javascript_conceal_return = "<"
 let g:javascript_conceal_null = "ø"
 highlight Conceal cterm=bold ctermbg=NONE ctermfg=darkblue
 
@@ -91,6 +98,9 @@ nnoremap <Leader><Left> <C-W><C-H>
 nnoremap <Leader><Right> <C-W><C-L>
 nnoremap <Leader><Up> <C-W><C-K>
 nnoremap <Leader><Down> <C-W><C-J>
+
+map <Leader>gb :Gblame<CR>
+map <silent> <Leader>e :Errors<CR>
 
 if has("gui_macvim")
   set guifont=Menlo:h12
