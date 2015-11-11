@@ -14,6 +14,13 @@ set splitright
 set splitbelow
 set background=dark
 set nowrap
+set autoread
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+set foldmethod=syntax
+set nofen
 let mapleader = " "
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -41,6 +48,9 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Wolfy87/vim-syntax-expand'
+Plugin 'elzr/vim-json'
+Plugin 'dag/vim2hs'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 filetype plugin indent on
@@ -50,20 +60,20 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:ctrlp_working_path_mode = 0
 let g:airline_section_b = '%{getcwd()}'
 " let g:indent_guides_enable_on_vim_startup = 1
-
-" Map the conceal characters to their expanded forms.
-inoremap <silent> @! <C-r>=syntax_expand#expand("@!", "this")<CR>
-inoremap <silent> <! <C-r>=syntax_expand#expand("<!", "return")<CR>
-inoremap <silent> fn! <C-r>=syntax_expand#expand("fn!", "function")<CR>
-
-set conceallevel=1
-set concealcursor=nvic
-let g:javascript_conceal_function = "λ"
-let g:javascript_conceal_this = "@"
-let g:javascript_conceal_return = "<"
-let g:javascript_conceal_null = "ø"
-highlight Conceal cterm=bold ctermbg=NONE ctermfg=darkblue
-
+"
+" " Map the conceal characters to their expanded forms.
+" autocmd FileType javascript inoremap <silent> @! <C-r>=syntax_expand#expand("@!", "this")<CR>
+" autocmd FileType javascript inoremap <silent> <! <C-r>=syntax_expand#expand("<!", "return")<CR>
+" autocmd FileType javascript inoremap <silent> fn! <C-r>=syntax_expand#expand("fn!", "function")<CR>
+"
+" set conceallevel=1
+" set concealcursor=nvic
+" let g:javascript_conceal_function = "λ"
+" let g:javascript_conceal_this = "@"
+" let g:javascript_conceal_return = "<"
+" let g:javascript_conceal_null = "ø"
+" highlight Conceal cterm=bold ctermbg=NONE ctermfg=darkblue
+"
 " The Silver Searcher
 " http://robots.thoughtbot.com/faster-grepping-in-vim
 if executable('ag')
@@ -79,6 +89,7 @@ endif
 
 let g:syntastic_javascript_checkers = ['eslint']
 let g:airline#extensions#tabline#enabled = 1
+let g:vim_json_syntax_conceal = 0
 
 map <S-Enter> o<ESC>k
 map <Enter> O<ESC>j
