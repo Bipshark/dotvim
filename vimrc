@@ -48,7 +48,6 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'sickill/vim-pasta'
 Plugin 'tpope/vim-fugitive'
 Plugin 'elzr/vim-json'
-Plugin 'dag/vim2hs'
 Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
